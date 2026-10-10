@@ -423,12 +423,13 @@ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
  b.dataset.t=="k"?list():b.dataset.t=="s"?sosial():quiz(b.dataset.t)});
 (()=>{const a=new Audio(),$=id=>document.getElementById(id),pl=$("pl");let i=-1,on=false,armed=true,hist=[];a.volume=.5;
 const rnd=()=>{let n;do n=Math.random()*SONGS.length|0;while(n==i&&SONGS.length>1);return n};
-const load=n=>{i=(n+SONGS.length)%SONGS.length;a.src=SONGS[i]};
+let alt=0,fails=0;const load=n=>{i=(n+SONGS.length)%SONGS.length;alt=0;a.src=SONGS[i]};
+a.onerror=()=>{if(!alt){alt=1;a.src=SONGS[i].split("/").pop()}else if(++fails<SONGS.length){alt=0;nx()}};a.onplaying=()=>{fails=0};
 const ic=()=>{$("pd").setAttribute("d",on?"M8 6h3v12H8zM13 6h3v12h-3z":"M9 7l9 5-9 5z");pl.classList.toggle("on",on)};
 const play=()=>a.play().then(()=>{on=true;armed=false;ic()}).catch(()=>{});
 load(rnd());play();
 pl.addEventListener("pointerdown",()=>armed=false);
-const kick=()=>{if(armed&&!on){armed=false;play()}};["click","keydown","touchend"].forEach(e=>addEventListener(e,kick));
+const kick=()=>{if(armed&&!on){armed=false;play()}};["pointerup","click","keydown","touchend"].forEach(e=>addEventListener(e,kick));
 const nx=()=>{hist.push(i);load(rnd());play()};
 $("pp").onclick=()=>{if(on){a.pause();on=false;ic()}else play()};
 $("pn").onclick=nx;$("pv").onclick=()=>{load(hist.length?hist.pop():rnd());play()};
