@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buat Karakter Lucu</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<h1>Buat Karakter</h1>
+<div id="app">
+ <section class="stage" id="stage">
+  <div class="dec" id="dec"></div>
+    <div class="bub" id="bub">HAHAHA!</div>
+  <div class="ground" id="gr"></div><div class="sh"></div>
+  <canvas class="cv" id="cv" width="280" height="360" title="Klik aku!"></canvas>
+  <button class="rot rl" id="rl" title="Putar ke kiri" aria-label="Putar ke kiri"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/></svg></button>
+  <button class="rot rr" id="rr" title="Putar ke kanan" aria-label="Putar ke kanan"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/></svg></button>
+ </section>
+ <section class="panel">
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="opts"></div>
+  <div class="cols" id="cols"></div>
+  <p class="note" id="note"></p>
+  <div class="acts">
+   <button class="dice" id="dice" title="Acak karakter"><svg viewBox="0 0 24 24" width="100%" height="100%"><rect x="2" y="2" width="20" height="20" rx="5" fill="#fff" stroke="#c9b9ad" stroke-width="1"/><g fill="#e53935"><circle cx="8" cy="8" r="1.8"/><circle cx="16" cy="8" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="8" cy="16" r="1.8"/><circle cx="16" cy="16" r="1.8"/></g></svg></button>
+   <button class="btn reset" id="reset">Reset</button>
+   <button class="btn next" id="next">Lanjut &#9654;</button>
+  </div>
+ </section>
+</div>
+<div id="gm" hidden><canvas id="gc"></canvas><button class="gb" id="hb" title="Sembunyikan chat">Sembunyikan chat</button><div id="hist"></div>
+<div id="gt"><button class="gb" id="mb" title="Pilih Map" aria-label="Pilih Map"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></button><div id="ml" hidden></div><button class="gb" id="gx" title="Keluar">✖</button></div>
+<div id="cb"><input id="ci" maxlength="60" placeholder="Klik untuk chat..."><button class="gb" id="cs">➤</button></div>
+<button class="gb" id="em" title="Emoticon">😊</button><button class="gb" id="mic" title="Voice chat (jarak dekat)">🎤</button><button class="gb" id="cam" title="Kamera: Normal" data-z="">🎥</button><div id="emp" hidden></div></div>
+<div class="md" id="md" hidden><div class="card" id="card"></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/character-builder.js"></script>
+<script src="js/world-game.js"></script><script src="js/fullscreen-bridge.js"></script>
+</body></html>
